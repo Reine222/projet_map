@@ -1,0 +1,35 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        {% block content %}
+        
+        {% endblock %}
+        
+        
+        {% block javascript %}
+        {{ block.super }}
+        <script type="text/javascript">
+        {% leaflet_map "detailmap" callback="window.map_init" %}
+        function map_init(map, options) {
+            var lc = map.layerscontrol;
+
+            // An example from the Atlas of Living Australia https://www.ala.org.au/
+            lc.addOverlay(
+                L.tileLayer.wms(
+                'https://spatial-beta.ala.org.au/geoserver/ALA/wms',
+                {layers: 'ALA:aus2', format: 'image/png', transparent: true}),
+                'Australia'
+            );
+
+            // add lc.addOverlay() layers as needed
+        }
+        </script>
+        {% endblock %}
+</body>
+</html> -->

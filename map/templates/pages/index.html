@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load leaflet_tags %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/froala-design-blocks/2.0.1/css/froala_blocks.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Document</title>
+    {% leaflet_js plugins="ALL" %}
+    {% leaflet_css plugins="ALL" %}
+
+    <style>
+
+            .leaflet-container {  /* all maps */
+                width:  600px;
+                height: 400px;
+            }
+        
+            #specialbigmap {
+                height: 800px;
+            }
+        
+            /* Resize the "display_raw" textbox */
+            .django-leaflet-raw-textarea {
+                width: 100%;
+            }
+        
+    </style>
+</head>
+<body>
+    <header class="bg-dark">
+        <div class="container">
+            <nav class="navbar">
+                <a href="https://www.froala.com">
+                    <img src="https://mpng.pngfly.com/20180607/luv/kisspng-mapquest-computer-icons-logo-google-maps-5b18bd44de3033.6727374215283479729101.jpg" height="30" alt="image"> <span style="text-decoration-color: white;">MAP</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="fdb-block">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-12">
+                    <h1>There is a feature for everyone</h1>
+                    <p class="lead"><a href="https://www.froala.com">See all features <i class="fas fa-angle-right"></i></a>
+                    </p>
+                    </div>
+                </div>
+            
+                <div class="row text-center justify-content-center mt-5">
+                    <div class="col-10 col-sm-3">
+                    <img alt="image" class="img-fluid rounded" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSwGZXqNbuU03mc5KHexz9X_Z1ncVwguyRZ2Hl9tXU7OJJN-Cbg">
+                    <h3><strong>MAP One</strong></h3>
+                    </div>
+                    <div class="col-10 col-sm-3 pt-5 pt-sm-0">
+                    <img alt="image" class="img-fluid rounded" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSwGZXqNbuU03mc5KHexz9X_Z1ncVwguyRZ2Hl9tXU7OJJN-Cbg">
+                    <h3><strong>MAP Two</strong></h3>
+                    </div>
+            
+                    <div class="col-10 col-sm-3 pt-5 pt-sm-0">
+                    <img alt="image" class="img-fluid rounded" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSwGZXqNbuU03mc5KHexz9X_Z1ncVwguyRZ2Hl9tXU7OJJN-Cbg">
+                    <h3><strong>MAP Three</strong></h3>
+                    </div>
+            
+                    <div class="col-10 col-sm-3 pt-5 pt-sm-0">
+                    <img alt="image" class="img-fluid rounded" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSwGZXqNbuU03mc5KHexz9X_Z1ncVwguyRZ2Hl9tXU7OJJN-Cbg">
+                    <h3><strong>MAP Four</strong></h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <div class="container">
+            <h1 class="text-center"> MAP One </h1>
+            <hr>
+            <div class="row">
+                <div class="col-md-8">
+                    {% leaflet_map "yourmap" %}
+                </div>
+                <div class="col-md-4">
+                    <h1>INFORMATIONS</h1>
+                    <h4>Pourquoi l'utiliser?</h4>
+                    <p>On sait depuis longtemps<br>
+                    que travailler avec du texte lisible et contenant du sens est source de distractions,<br>
+                    et empêche de se concentrer sur la mise en page elle-même.<br>
+                    L'avantage du Lorem Ipsum sur un texte générique comme 'Du texte.<br>
+                        Du texte. Du texte.' est qu'il possède une distribution de lettres plus ou moins normale,<br>
+                        et en tout cas comparable avec celle du français standard.<br>
+                        De nombreuses suites logicielles de mise en page ou éditeurs de sites Web ont fait du Lorem Ipsum leur faux texte par défaut,<br>
+                        et une recherche pour 'Lorem Ipsum' vous conduira vers de nombreux sites qui n'en sont encore qu'à leur phase de construction. Plusieurs versions sont apparues avec le temps, parfois par accident,<br>
+                            souvent intentionnellement (histoire d'y rajouter de petits clins d'oeil, voire des phrases embarassantes).
+                    </p>
+                </div>
+                
+            </div>
+            <script type="text/javascript">
+                window.addEventListener("map:init", function (e) {
+                    var detail = e.detail;
+                    L.marker([50.5, 30.5]).addTo(detail.map);
+                }, false);
+                
+            </script>
+            
+            {% leaflet_map "yourmap" callback="window.map_init_basic" %}
+    </div>
+    <hr>
+    <div class="container">
+            <div class="row text-left align-items-center">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <h2>Your Website</h2>
+                    <p class="lead">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <p class="lead"><a href="https://www.froala.com">Read More</a></p>
+                </div>
+            
+                <div class="col-12 col-md-6 col-lg-4 pt-4 pt-md-0">
+                    <h2>Amazing Design</h2>
+                    <p class="lead">Right at the coast of the Semantics, a large language ocean. A small river named Dude a rge language ocean there live the blind.</p>
+                    <p class="lead"><a href="https://www.froala.com">Read More</a></p>
+                </div>
+            
+                <div class="col-12 col-md-8 m-auto m-lg-0 col-lg-4 pt-5 pt-lg-0">
+                    <img alt="image" class="img-fluid" src="./imgs/draws/tabs.svg">
+                </div>
+                </div>
+            </div>
+        </section>
+
+        <br>
+    <footer class="fdb-block footer-large bg-dark">
+            <div class="container">
+                <div class="row align-items-top text-center text-md-left">
+                    <div class="col-12 col-sm-6 col-md-4">
+                    <h3><strong>Country A</strong></h3>
+                    <p>Street Address 52<br>Contact Name</p>
+                    <p>+44 827 312 5002</p>
+                    <p><a href="https://www.froala.com">countrya@amazing.com</a></p>
+                    </div>
+            
+                    <div class="col-12 col-sm-6 col-md-4 mt-4 mt-sm-0">
+                    <h3><strong>Country B</strong></h3>
+                    <p>Street Address 100<br>Contact Name</p>
+                    <p>+13 827 312 5002</p>
+                    <p><a href="https://www.froala.com">countryb@amazing.com</a></p>
+                    </div>
+            
+                    <div class="col-12 col-md-4 mt-5 mt-md-0 text-md-left">
+                    <h3><strong>About Us</strong></h3>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    </div>
+                </div>
+            
+                <div class="row mt-5">
+                    <div class="col text-center">
+                    © 2018 Froala. All Rights Reserved
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
